@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -15,7 +16,6 @@ public class FileHandler {
     public void parseData(){
 
         Scanner scan = null;
-
         try {
             scan = new Scanner(f, StandardCharsets.ISO_8859_1);
             scan.nextLine();
@@ -46,6 +46,18 @@ public class FileHandler {
         scan.close();
 
         }
+        public void compareToregion(){
+            Collections.sort(loadAlldata, new RegionComparator());
+        }  public void compareToAge(){
+            Collections.sort(loadAlldata, new AldersGruppeComparator());
+        }
+
+        public void compareForregionAlder(){
+      Collections.sort(loadAlldata, new RegionComparator().thenComparing(new AldersGruppeComparator()));
+        } public void compareForAlderRegion(){
+      Collections.sort(loadAlldata, new AldersGruppeComparator().thenComparing(new RegionComparator()));
+        }
+
         public void printCovidData(){
             for (Covid19Data data:loadAlldata) {
                 System.out.println(data);

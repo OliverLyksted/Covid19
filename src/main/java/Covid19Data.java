@@ -22,7 +22,13 @@ public class Covid19Data {
         this.indlagte = indlagte;
         this.dato = dato;
     }
+    public String getRegion(){
+        return region;
+    }
 
+    public String getAldersgruppe() {
+        return aldersgruppe;
+    }
 
     public String toString(){
         return " Region: " + region + ", Aldersgruppe: " +  aldersgruppe + ", Bekræftede Tilfælde: " +  bekræftedeTilfælde + ", Døde: " +  døde + ", Indlagte På Intensiv: " + indlagtePåIntensiv + ", Indlagte: " +  indlagte + ", Dato: " + dato;
